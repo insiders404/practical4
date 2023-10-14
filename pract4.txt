@@ -1,0 +1,17 @@
+sudo nano /boot/config.txt
+###############
+dtparam=spi=on
+dtoverlay=pi3-disable-bt
+core_freq=250
+enable_uart=1
+force_turbo=1
+#############
+sudo systemctl stop serial-getty@ttyS0.service
+sudo systemctl disable serial-getty@ttyS0.service
+
+sudo systemctl enable serial-getty@ttyAMA0.service
+
+sudo apt-get install minicom
+sudo pip install pynmea2
+
+sudo cat /dev/ttyAMA0
